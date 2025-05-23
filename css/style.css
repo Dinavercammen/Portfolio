@@ -97,7 +97,8 @@ body {
 
 .cta-button:hover {
   background-color: #FF8C00;
-  color: #F24C8E;
+  color: #F5F0E1; /* ← beige kleur */
+
 }
 
 .divider {
