@@ -349,6 +349,12 @@ body {
   gap: 2rem;
 }
 
+.cta-button-orange:hover {
+  background-color: #F24C8E; /* Roze bij hover */
+  color: white;
+}
+
+
 
 
 
