@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Slab&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <ul>
+      <li><a href="home.html">HOME</a></li>
+      <li><a href="aboutme.html">ABOUT ME</a></li>
+      <li><a href="portfolio.html">PORTFOLIO</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+  </nav>
+
+  <section class="contact-form-section" style="max-width: 700px; margin: 40px auto; padding: 20px; font-family: 'Montserrat', sans-serif; color: #000;">
+    <h1 style="color: #F24C8E; font-family: 'Roboto Slab', serif; text-align: center; font-size: 2.5rem; margin-bottom: 10px; font-weight: bold;">
+      NEEM CONTACT OP
+    </h1>
+    <p style="text-align: center; font-size: 1.1rem; margin-bottom: 40px;">
+      Stuur me een bericht en ik neem zo snel mogelijk contact met je op.
+    </p>
+
+    <form class="contact-form" action="#" method="post">
+      <div style="margin-bottom: 20px;">
+        <label for="naam" style="display: block; margin-bottom: 8px;">Naam</label>
+        <input
+          type="text"
+          id="naam"
+          name="naam"
+          placeholder="Jouw naam"
+          required
+          style="width: 100%; padding: 15px 20px; border: 2px solid #FF8C00; border-radius: 25px; font-size: 1rem; font-family: 'Montserrat', sans-serif;"
+        />
+      </div>
+
+      <div style="margin-bottom: 20px;">
+        <label for="email" style="display: block; margin-bottom: 8px;">E-mail</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="jij@email.com"
+          required
+          style="width: 100%; padding: 15px 20px; border: 2px solid #FF8C00; border-radius: 25px; font-size: 1rem; font-family: 'Montserrat', sans-serif;"
+        />
+      </div>
+
+      <div style="margin-bottom: 20px;">
+        <label for="bericht" style="display: block; margin-bottom: 8px;">Bericht</label>
+        <textarea
+          id="bericht"
+          name="bericht"
+          rows="6"
+          placeholder="Laat hier je bericht achter"
+          required
+          style="width: 100%; padding: 15px 20px; border: 2px solid #FF8C00; border-radius: 25px; font-size: 1rem; resize: vertical; font-family: 'Montserrat', sans-serif;"
+        ></textarea>
+      </div>
+
+      <button class="cta-button-orange" type="submit" style="font-family: 'Montserrat', sans-serif;">
+        NEEM CONTACT OP
+      </button>
+    </form>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-info">
+        <h2>Dina Vercammen</h2>
+        <p>Graphic Designer</p>
+        <p>Email: <a href="mailto:dinavercammen13@outlook.com">dinavercammen13@outlook.com</a></p>
+        <p>GSM: +324 99 74 41 89</p>
+      </div>
+      <div class="footer-social-icons">
+        <a href="#" class="social-icon" aria-label="TikTok">
+          <img src="images/TIKTOK.png" alt="TikTok logo" />
+        </a>
+        <a href="#" class="social-icon" aria-label="Instagram">
+          <img src="images/INSTAGRAM.jpeg" alt="Instagram logo" />
+        </a>
+        <a href="#" class="social-icon" aria-label="LinkedIn">
+          <img src="images/LINKEDIN.png" alt="LinkedIn logo" />
+        </a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
