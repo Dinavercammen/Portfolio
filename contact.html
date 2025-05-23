@@ -8,26 +8,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Slab&display=swap" rel="stylesheet" />
-  <style>
-    .verzend-knop {
-      background-color: #FF8C00;
-      color: #F5F0E1;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: bold;
-      font-size: 1.1rem;
-      padding: 12px 36px;
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-      display: block;
-      margin: 0 auto;
-      transition: background-color 0.3s ease;
-    }
-
-    .verzend-knop:hover {
-      background-color: #F24C8E; /* roze bij hover */
-    }
-  </style>
 </head>
 <body>
 
@@ -36,7 +16,7 @@
       <li><a href="home.html">HOME</a></li>
       <li><a href="aboutme.html">ABOUT ME</a></li>
       <li><a href="portfolio.html">PORTFOLIO</a></li>
-      <li><a href="contact.html">CONTACT</a></li>
+      <li><a href="contact.html" aria-current="page">CONTACT</a></li>
     </ul>
   </nav>
 
@@ -51,43 +31,63 @@
     <form class="contact-form" action="#" method="post">
       <div style="margin-bottom: 20px;">
         <label for="naam" style="display: block; margin-bottom: 8px;">Naam</label>
-        <input type="text" id="naam" name="naam" placeholder="Jouw naam" required
-          style="width: 100%; padding: 15px 20px; border: 2px solid #FF8C00; border-radius: 25px; font-size: 1rem; font-family: 'Montserrat', sans-serif;" />
+        <input
+          type="text"
+          id="naam"
+          name="naam"
+          placeholder="Jouw naam"
+          required
+          style="width: 100%; padding: 15px 20px; border: 2px solid #FF8C00; border-radius: 25px; font-size: 1rem; font-family: 'Montserrat', sans-serif;"
+        />
       </div>
 
       <div style="margin-bottom: 20px;">
         <label for="email" style="display: block; margin-bottom: 8px;">E-mail</label>
-        <input type="email" id="email" name="email" placeholder="jij@email.com" required
-          style="width: 100%; padding: 15px 20px; border: 2px solid #FF8C00; border-radius: 25px; font-size: 1rem; font-family: 'Montserrat', sans-serif;" />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="jij@email.com"
+          required
+          style="width: 100%; padding: 15px 20px; border: 2px solid #FF8C00; border-radius: 25px; font-size: 1rem; font-family: 'Montserrat', sans-serif;"
+        />
       </div>
 
       <div style="margin-bottom: 20px;">
         <label for="bericht" style="display: block; margin-bottom: 8px;">Bericht</label>
-        <textarea id="bericht" name="bericht" rows="6" placeholder="Laat hier je bericht achter" required
-          style="width: 100%; padding: 15px 20px; border: 2px solid #FF8C00; border-radius: 25px; font-size: 1rem; resize: vertical; font-family: 'Montserrat', sans-serif;"></textarea>
+        <textarea
+          id="bericht"
+          name="bericht"
+          rows="6"
+          placeholder="Laat hier je bericht achter"
+          required
+          style="width: 100%; padding: 15px 20px; border: 2px solid #FF8C00; border-radius: 25px; font-size: 1rem; resize: vertical; font-family: 'Montserrat', sans-serif;"
+        ></textarea>
       </div>
 
-      <button type="submit" class="verzend-knop">VERSTUREN</button>
+      <button class="cta-button-orange" type="submit" style="font-family: 'Montserrat', sans-serif; font-weight: bold;">
+        NEEM CONTACT OP
+      </button>
     </form>
   </section>
 
-  <footer class="site-footer" style="text-align: center; margin-top: 40px; font-family: 'Montserrat', sans-serif; color: #555;">
-    <div class="footer-content">
-      <div class="footer-info">
+  <footer class="site-footer" style="font-family: 'Montserrat', sans-serif;">
+    <div class="footer-content" style="max-width: 700px; margin: 0 auto; padding: 20px;">
+      <div class="footer-info" style="margin-bottom: 20px;">
         <h2>Dina Vercammen</h2>
         <p>Graphic Designer</p>
         <p>Email: <a href="mailto:dinavercammen13@outlook.com">dinavercammen13@outlook.com</a></p>
         <p>GSM: +324 99 74 41 89</p>
       </div>
-      <div class="footer-social-icons" style="margin-top: 20px;">
-        <a href="#" class="social-icon" aria-label="TikTok" style="margin: 0 10px;">
-          <img src="images/tiktok.png" alt="TikTok logo" style="height: 30px;" />
+      <div class="footer-social-icons" style="display: flex; gap: 10px;">
+        <a href="#" class="social-icon" aria-label="TikTok">
+          <img src="images/TIKTOK.png" alt="TikTok logo" />
         </a>
-        <a href="#" class="social-icon" aria-label="Instagram" style="margin: 0 10px;">
-          <img src="images/instagram.jpeg" alt="Instagram logo" style="height: 30px;" />
+        <a href="#" class="social-icon" aria-label="Instagram">
+          <img src="images/INSTAGRAM.jpeg" alt="Instagram logo" />
         </a>
-        <a href="#" class="social-icon" aria-label="LinkedIn" style="margin: 0 10px;">
-          <img src="images/linkedin.png" alt="LinkedIn logo" style="height: 30px;" />
+        <a href="#" class="social-icon" aria-label="LinkedIn">
+          <img src="images/LINKEDIN.png" alt="LinkedIn logo" />
         </a>
       </div>
     </div>
