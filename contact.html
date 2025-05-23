@@ -8,6 +8,26 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Slab&display=swap" rel="stylesheet" />
+  <style>
+    .verzend-knop {
+      background-color: #FF8C00;
+      color: #F5F0E1;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding: 12px 36px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      display: block;
+      margin: 0 auto;
+      transition: background-color 0.3s ease;
+    }
+
+    .verzend-knop:hover {
+      background-color: #F24C8E; /* roze bij hover */
+    }
+  </style>
 </head>
 <body>
 
@@ -31,43 +51,23 @@
     <form class="contact-form" action="#" method="post">
       <div style="margin-bottom: 20px;">
         <label for="naam" style="display: block; margin-bottom: 8px;">Naam</label>
-        <input
-          type="text"
-          id="naam"
-          name="naam"
-          placeholder="Jouw naam"
-          required
-          style="width: 100%; padding: 15px 20px; border: 2px solid #FF8C00; border-radius: 25px; font-size: 1rem; font-family: 'Montserrat', sans-serif;"
-        />
+        <input type="text" id="naam" name="naam" placeholder="Jouw naam" required
+          style="width: 100%; padding: 15px 20px; border: 2px solid #FF8C00; border-radius: 25px; font-size: 1rem; font-family: 'Montserrat', sans-serif;" />
       </div>
 
       <div style="margin-bottom: 20px;">
         <label for="email" style="display: block; margin-bottom: 8px;">E-mail</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="jij@email.com"
-          required
-          style="width: 100%; padding: 15px 20px; border: 2px solid #FF8C00; border-radius: 25px; font-size: 1rem; font-family: 'Montserrat', sans-serif;"
-        />
+        <input type="email" id="email" name="email" placeholder="jij@email.com" required
+          style="width: 100%; padding: 15px 20px; border: 2px solid #FF8C00; border-radius: 25px; font-size: 1rem; font-family: 'Montserrat', sans-serif;" />
       </div>
 
       <div style="margin-bottom: 20px;">
         <label for="bericht" style="display: block; margin-bottom: 8px;">Bericht</label>
-        <textarea
-          id="bericht"
-          name="bericht"
-          rows="6"
-          placeholder="Laat hier je bericht achter"
-          required
-          style="width: 100%; padding: 15px 20px; border: 2px solid #FF8C00; border-radius: 25px; font-size: 1rem; resize: vertical; font-family: 'Montserrat', sans-serif;"
-        ></textarea>
+        <textarea id="bericht" name="bericht" rows="6" placeholder="Laat hier je bericht achter" required
+          style="width: 100%; padding: 15px 20px; border: 2px solid #FF8C00; border-radius: 25px; font-size: 1rem; resize: vertical; font-family: 'Montserrat', sans-serif;"></textarea>
       </div>
 
-      <button type="submit" style="background-color: #FF8C00; color: #F5F0E1; font-family: 'Montserrat', sans-serif; font-weight: bold; font-size: 1.1rem; padding: 12px 36px; border: none; border-radius: 25px; cursor: pointer; display: block; margin: 0 auto; transition: background-color 0.3s ease;">
-        VERSTUREN
-      </button>
+      <button type="submit" class="verzend-knop">VERSTUREN</button>
     </form>
   </section>
 
