@@ -1,78 +1,147 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio</title>
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
-  <!-- Jouw CSS -->
-  <link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  <nav class="navbar">
-    <ul>
-      <li><a href="home.html">HOME</a></li>
-      <li><a href="aboutme.html">ABOUT ME</a></li>
-      <li><a href="portfolio.html" class="active">PORTFOLIO</a></li>
-      <li><a href="contact.html">CONTACT</a></li>
-    </ul>
-  </nav>
+body {
+  background-color: #F5F0E1;
+  font-family: 'Montserrat', sans-serif;
+  color: #000;
+}
 
-  <section class="hero-section">
-    <h1>PORTFOLIO</h1>
-    <h2>Een selectie van mijn werk</h2>
-    <p>Hier vind je een overzicht van projecten waar ik met passie aan heb gewerkt. Klik op de knoppen voor meer details.</p>
-    <button class="cta-button">NEEM CONTACT OP</button>
-  </section>
+/* Navbar */
+.navbar {
+  background-color: #FF8C00;
+  padding: 2vh 4vw;
+  font-family: 'Roboto Slab', serif;
+}
 
-  <div class="divider"></div>
+.navbar ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
 
-  <div class="beige-block"></div>
-  <h3 class="recent-works-title">PROJECTEN</h3>
+.navbar li a {
+  color: #F5F0E1;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
 
-  <div class="grid-container">
-    <div class="grid-item green-cell">
-      <h3>Verpakkingsontwerp MIPA</h3>
-      <p>Een stijlvol en functioneel ontwerp dat de unieke identiteit van het merk versterkt.</p>
-      <button class="cta-button">Bekijk project</button>
-    </div>
-    <div class="grid-item pink-cell">
-      <h3>Branding voor Startup</h3>
-      <p>Een fris en krachtig merkbeeld ontworpen om op te vallen in een competitieve markt.</p>
-      <button class="cta-button">Bekijk project</button>
-    </div>
-    <div class="grid-item orange-cell">
-      <h3>Webdesign Portfolio</h3>
-      <p>Gebruiksvriendelijke website met focus op UX en moderne uitstraling.</p>
-      <button class="cta-button">Bekijk project</button>
-    </div>
-    <div class="grid-item image-cell">
-      <img src="images/portfolio-sample.jpg" alt="Project voorbeeld" />
-    </div>
-  </div>
+.navbar li a:hover,
+.navbar li a[aria-current="page"] {
+  color: #333;
+}
 
-  <section class="more-projects-section">
-    <p>Wil je samenwerken of heb je vragen? Neem contact met me op, ik denk graag mee over jouw project.</p>
-    <button class="cta-button-orange">NEEM CONTACT OP</button>
-  </section>
+/* Portfolio-intro */
+.portfolio-intro {
+  padding: 4vh 4vw;
+  text-align: center;
+}
 
-  <footer class="site-footer">
-    <div class="footer-content">
-      <div class="footer-info">
-        <h2>Dina Vercammen</h2>
-        <p>Graphic Designer</p>
-        <p>Email: <a href="mailto:dinavercammen13@outlook.com">dinavercammen13@outlook.com</a></p>
-        <p>GSM: +324 99 74 41 89</p>
-      </div>
-      <div class="footer-social-icons">
-        <a href="#" class="social-icon" aria-label="TikTok">
-          <img src="images/TIKTOK.png" alt="TikTok logo" />
-        </a>
-        <a href="#" class="social-icon" aria-label="Instagram">
-          <img src="images/INSTAGRAM.jpeg" alt="Instagram logo" />
-        </a>
-        <a href="#" class="social-icon" aria-label="LinkedIn">
+/* Grid layout */
+.portfolio-grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 4vh 4vw;
+}
+
+.portfolio-grid-item {
+  height: 250px;
+  background-color: #ccc;
+  position: relative;
+}
+
+.image-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgba(255, 140, 0, 0.7);
+  color: white;
+  width: 100%;
+  padding: 10px;
+}
+
+/* Kleurvakken */
+.green-cell {
+  background-color: #A3C293;
+}
+
+.pink-cell {
+  background-color: #F7B7A3;
+}
+
+.orange-cell {
+  background-color: #FFB347;
+}
+
+/* Call to action section */
+.portfolio-cta-section {
+  text-align: center;
+  padding: 4vh 4vw;
+}
+
+.cta-button-orange {
+  background-color: #FF8C00;
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif; /* <-- HIER aangepast */
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button-orange:hover {
+  background-color: #e07b00;
+}
+
+/* Footer */
+.site-footer {
+  background-color: #333;
+  color: #fff;
+  padding: 4vh 4vw;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-info h2 {
+  font-family: 'Roboto Slab', serif;
+}
+
+.footer-info a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-social-icons a {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+  transition: none; /* Geen animatie */
+}
+
+.footer-social-icons a:hover {
+  transform: none; /* Geen beweging */
+  filter: none;     /* Geen filter-effect */
+}
