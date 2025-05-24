@@ -200,11 +200,25 @@
 
 
     /* Instructie tekst */
-    
-  .instruction {
+.instruction {
   position: absolute;
   top: 50%;
-  
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #333; /* bijvoorbeeld een contrasterende kleur */
+  background-color: rgba(245, 240, 225, 0.8); /* lichte achtergrond met transparantie */
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.2rem;
+  pointer-events: none; /* zodat hover op de tekst niet interfereert */
+  transition: opacity 0.4s ease;
+  z-index: 10;
+}
+
+/* Zorg dat bij hover de instructie tekst verdwijnt */
+.image-hover-container:hover .instruction {
+  opacity: 0;
 }
 
     .gallery-wrapper:hover .instruction {
