@@ -188,35 +188,38 @@
       background-color: #f8f3e4;
     }
 
-    .navbar {
-  width: 100vw;
-  margin: 0;
-  padding: 2vh 4vw;
+    
+.navbar {
+  width: 100%;
   background-color: #FF8C00;
+  padding: 20px 0;
+  font-family: 'Montserrat', sans-serif;
   box-sizing: border-box;
-  font-family: 'Roboto Slab', serif;
 }
 
-/* Maak de ul horizontaal en spreid items uit */
 .navbar ul {
   display: flex;
-  justify-content: space-between;
-  padding: 10px 20px;
+  justify-content: center;
+  gap: 80px; /* ruimte tussen items */
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-/* Style voor de links */
 .navbar li a {
-  text-decoration: none;
   color: #F5F0E1;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  font-size: 16px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 1px;
+  transition: color 0.3s, border-bottom 0.3s;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
 }
 
-/* Hover-effect voor links */
 .navbar li a:hover {
   color: #F24C8E;
+  border-bottom: 2px solid #F24C8E;
 }
 
 .hero-section {
