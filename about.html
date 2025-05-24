@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dina Vercammen - Smooth Hover Gallery</title>
+  <title>Dina Vercammen - Portfolio Gallery</title>
+   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     * {
@@ -15,138 +16,233 @@
     body {
       font-family: 'Montserrat', sans-serif;
       background-color: #F5F0E1;
-      color: #000;
+      color: #000000; /* tekst zwart */
       min-height: 100vh;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      padding: 2rem;
+      padding: 3rem 1rem 6rem;
+      gap: 2rem;
+    }
+
+    /* Header styling */
+    .intro {
+      max-width: 580px;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .intro h1 {
+      font-weight: 700;
+      font-size: 2.5rem;
+      color: #f24c8e; /* roos kleur */
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .intro p {
+      font-weight: 400;
+      font-size: 1.1rem;
+      color: #000000; /* zwarte bodytekst */
+      line-height: 1.7;
+    }
+
+    /* Ruimte tussen intro en gallery */
+    .spacer {
+      height: 6rem;
+      width: 100%;
+    }
+
+    .gallery-wrapper {
+      position: relative;
+      width: 320px;
+      height: 450px; /* originele grootte behouden */
+      margin-top: 2rem;
     }
 
     .image-hover-container {
-      position: relative;
-      width: 320px;
-      height: 420px;
-      overflow: visible; /* Zodat thumbnails buiten container kunnen */
-    }
-
-    /* Hoofdafbeelding */
-    .main-img,
-    .hover-img {
       width: 100%;
       height: 100%;
+      position: relative;
+      z-index: 1;
+      cursor: pointer;
+    }
+
+    .main-img,
+    .hover-img {
+      width: 320px;
+      height: 450px;
       object-fit: cover;
       border-radius: 10px;
       position: absolute;
       top: 0;
       left: 0;
       transition: opacity 0.4s ease;
-      display: block;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
     .hover-img {
       opacity: 0;
       z-index: 2;
-      pointer-events: none;
     }
 
     .image-hover-container:hover .hover-img {
       opacity: 1;
-      pointer-events: auto;
     }
 
     .image-hover-container:hover .main-img:not(.hover-img) {
       opacity: 0;
     }
 
-    /* Container voor thumbnails */
-    .thumbnails {
+    .thumbs {
       position: absolute;
-      top: 50%;
-      left: 0;
-      right: 0;
-      height: 100%;
-      pointer-events: none;
-      z-index: 3;
       display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      padding: 0 80px; /* ruimte aan de zijkanten voor thumbnails */
-    }
-
-    /* Individuele thumbnails */
-    .thumb {
-      width: 60px;
-      height: 80px;
-      object-fit: contain;
+      gap: 20px;
       opacity: 0;
-      transition: opacity 0.5s ease, transform 0.3s ease;
-      cursor: pointer;
-      pointer-events: auto;
-      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.15));
-      /* Geen achtergrond, geen border */
-      background: none;
-      border: none;
-      border-radius: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+      z-index: 3;
     }
 
-    /* Thumbnails verschijnen smooth bij hover container */
-    .image-hover-container:hover .thumb {
+    .gallery-wrapper:hover .thumbs {
       opacity: 1;
+      pointer-events: auto;
     }
 
-    /* Kleinere scale bij hover thumbnail */
+    .thumb {
+      width: 260px;
+      height: 340px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
     .thumb:hover {
       transform: scale(1.1);
     }
 
-    /* Verdeling thumbnails: 3 links, 2 rechts */
-    .left-thumbs {
-      display: flex;
+    .thumbs.left {
+      top: 50%;
+      left: -280px;
       flex-direction: column;
-      gap: 15px;
-      justify-content: center;
-      align-items: flex-start;
-    }
-
-    .right-thumbs {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      justify-content: center;
+      transform: translateY(-50%);
       align-items: flex-end;
     }
 
-    /* Responsive: thumbnails verbergen op smalle schermen */
+    .thumbs.right {
+      top: 50%;
+      right: -280px;
+      flex-direction: column;
+      transform: translateY(-50%);
+      align-items: flex-start;
+    }
+
+    .thumbs.top {
+      top: -280px;
+      left: 50%;
+      transform: translateX(-50%);
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .thumbs.bottom {
+      bottom: -350px;
+      left: 50%;
+      transform: translateX(-50%);
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .instruction {
+      position: absolute;
+      bottom: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #f24c8e;
+      font-weight: 600;
+      font-size: 1.2rem;
+      pointer-events: none;
+      user-select: none;
+      transition: color 0.3s ease, opacity 0.3s ease;
+      z-index: 5;
+      font-style: italic;
+      background: rgba(255, 255, 255, 0.7);
+      padding: 6px 14px;
+      border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(242, 76, 142, 0.4);
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+
+    .gallery-wrapper:hover .instruction {
+      color: #ff8c00;
+      opacity: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
     @media (max-width: 768px) {
-      .thumbnails {
+      .thumbs {
         display: none;
+      }
+      .instruction {
+        font-size: 1rem;
+        bottom: -40px;
+      }
+      .intro h1 {
+        font-size: 1.8rem;
+      }
+      .intro p {
+        font-size: 1rem;
       }
     }
   </style>
 </head>
 <body>
+    
 
-  <div class="image-hover-container">
-    <!-- Hoofdafbeelding -->
-    <img src="images/0fa62601-76ab-45da-b84e-c5960077fd8b.JPG" alt="Hoofdafbeelding" class="main-img" />
+    
+  <div class="intro">
+    <h1>LEER ME KENNEN</h1>
+    <p>
+      Hey! Mijn naam is Dina Vercammen. Ik ben een creatief persoon die graag met kleuren werkt en ontwerpen maakt die niet alleen mooi zijn, maar ook echt werken. Voor mij is het belangrijk dat mijn ontwerpen aantrekkelijk en effectief zijn en dat ze echt impact maken. Ik vind het leuk om steeds iets unieks en inspirerends te creëren waar ik zelf blij van word en waar jij hopelijk ook blij van wordt!
+    </p>
+  </div>
 
-    <!-- Hover-afbeelding -->
-    <img src="images/Avatar definitief 2.png" alt="Hover afbeelding" class="main-img hover-img" />
+  <div class="spacer"></div>
 
-    <!-- Thumbnails links en rechts -->
-    <div class="thumbnails">
-      <div class="left-thumbs">
-        <img src="images/DATA APART-02.png" alt="thumb1" class="thumb" />
-        <img src="images/DATA APART-03.png" alt="thumb2" class="thumb" />
-        <img src="images/DATA APART-06.png" alt="thumb5" class="thumb" />
-      </div>
-      <div class="right-thumbs">
-        <img src="images/DATA APART-04.png" alt="thumb3" class="thumb" />
-        <img src="images/DATA APART-05.png" alt="thumb4" class="thumb" />
-      </div>
+  <div class="gallery-wrapper">
+    <!-- Top thumbnails -->
+    <div class="thumbs top">
+      <img src="images/DATA APART-02.png" class="thumb" />
+      <img src="images/DATA APART-03.png" class="thumb" />
     </div>
+
+    <!-- Left thumbnails -->
+    <div class="thumbs left">
+      <img src="images/DATA APART-04.png" class="thumb" />
+    </div>
+
+    <!-- Main image container -->
+    <div class="image-hover-container">
+      <img src="images/0fa62601-76ab-45da-b84e-c5960077fd8b.JPG" class="main-img" />
+      <img src="images/Avatar definitief 2.png" class="main-img hover-img" />
+    </div>
+
+    <!-- Right thumbnails -->
+    <div class="thumbs right">
+      <img src="images/DATA APART-05.png" class="thumb" />
+    </div>
+
+    <!-- Bottom thumbnails -->
+    <div class="thumbs bottom">
+        <img src="images/DATA APART-01.png" class="thumb"" />
+      
+    </div>
+
+    <!-- Instructie tekst -->
+    <div class="instruction">Veeg over de foto en ontdek meer</div>
   </div>
 
 </body>
