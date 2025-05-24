@@ -202,19 +202,24 @@
     /* Instructie tekst */
 .instruction {
   position: absolute;
-  top: 50%;
+  top: 40%; /* meer naar onder */
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #333; /* bijvoorbeeld een contrasterende kleur */
-  background-color: rgba(245, 240, 225, 0.8); /* lichte achtergrond met transparantie */
-  padding: 0.6rem 1rem;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 1.2rem;
-  pointer-events: none; /* zodat hover op de tekst niet interfereert */
-  transition: opacity 0.4s ease;
+  color: #ef4d8e;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  pointer-events: none;
+  user-select: none;
+  transition: color 0.3s ease, opacity 0.3s ease;
   z-index: 10;
-}
+  font-style: italic;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 4px 10px;
+  border-radius: 15px;
+  box-shadow: 0 2px 6px rgba(239, 77, 142, 0.4);
+  white-space: nowrap;
+  opacity: 1;
 
 /* Zorg dat bij hover de instructie tekst verdwijnt */
 .image-hover-container:hover .instruction {
