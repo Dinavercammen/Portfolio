@@ -3,55 +3,98 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Een plek vol creaties</title>
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet" />
-  
-  <!-- Eigen CSS -->
-  <link rel="stylesheet" href="css/style.css" />
-   <style>
-
-      .intro {
-  text-align: center;
-  max-width: 580px; /* je had dit al */
+  <title>Dina Vercammen - Portfolio Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Body reset */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #F5F0E1;
+      color: #000000;
+      margin: 0;
+      padding-top: 70px; /* ruimte voor navbar */
+      padding-bottom: 50px; /* kleine ruimte onderaan */
+      line-height: 1.5;
+    }
+    .intro {
+  margin: 4rem auto 2rem auto;
 }
-main {
-  display: flex;
-  flex-direction: column;  /* zet items onder elkaar */
-  align-items: center;     /* centreert horizontaal */
-  /* optioneel: voeg hier padding of margin toe als je wilt */
+    
+
+    .main-wrapper {
+  min-height: calc(100vh - 150px); /* trek footer hoogte af */
+}
+
+    body, html {
+  height: 100vh; /* hoogte van viewport */
+  overflow-x: hidden;
+}
+
+    
+
+    /* Navbar styling */
+    .navbar {
+      background-color: #FF8C00;
+      padding: 1.5rem 3rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .navbar ul {
+      list-style: none;
+      margin: 0;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .navbar ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .navbar ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* Intro tekst sectie */
+    .intro {
+  max-width: 580px;
+  margin: 8rem auto 2rem auto; /* grotere ruimte boven */
+  text-align: center;
 }
     .intro h1 {
       font-weight: 700;
       font-size: 2.5rem;
-      color: #f24c8e; /* roos kleur */
+      color: #f24c8e;
       margin-bottom: 1rem;
       text-transform: uppercase;
-      align-items: center;
     }
-
     .intro p {
       font-weight: 400;
       font-size: 1.1rem;
-      color: #000000; /* zwarte bodytekst */
+      color: #000000;
       line-height: 1.7;
     }
 
-    /* Ruimte tussen intro en gallery */
+    /* Spacer */
     .spacer {
       height: 6rem;
       width: 100%;
     }
 
+    /* Gallery styling */
     .gallery-wrapper {
-      position: relative;
-      width: 320px;
-      height: 450px; /* originele grootte behouden */
-      margin-top: 2rem;
-    }
+  position: relative;
+  width: 320px;
+  height: 800px;
+  margin: 6rem auto 2rem auto;
 
+}
     .image-hover-container {
       width: 100%;
       height: 100%;
@@ -59,7 +102,6 @@ main {
       z-index: 1;
       cursor: pointer;
     }
-
     .main-img,
     .hover-img {
       width: 320px;
@@ -72,20 +114,25 @@ main {
       transition: opacity 0.4s ease;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
-
     .hover-img {
       opacity: 0;
       z-index: 2;
     }
 
+    .image-hover-container:hover .instruction {
+  opacity: 0;
+  background: transparent;
+  box-shadow: none;
+  color: #ff8c00;
+}
     .image-hover-container:hover .hover-img {
       opacity: 1;
     }
-
     .image-hover-container:hover .main-img:not(.hover-img) {
       opacity: 0;
     }
 
+    /* Thumbnails */
     .thumbs {
       position: absolute;
       display: flex;
@@ -95,24 +142,26 @@ main {
       transition: opacity 0.5s ease;
       z-index: 3;
     }
-
     .gallery-wrapper:hover .thumbs {
       opacity: 1;
       pointer-events: auto;
     }
-
     .thumb {
       width: 260px;
       height: 340px;
       object-fit: contain;
       transition: transform 0.3s ease;
       cursor: pointer;
+      border-radius: 8px;
+      box-shadow: none;
+      background-color: transparent;
+      border: none;
     }
-
     .thumb:hover {
       transform: scale(1.1);
     }
 
+    /* Posities thumbnails */
     .thumbs.left {
       top: 50%;
       left: -280px;
@@ -120,7 +169,6 @@ main {
       transform: translateY(-50%);
       align-items: flex-end;
     }
-
     .thumbs.right {
       top: 50%;
       right: -280px;
@@ -128,7 +176,6 @@ main {
       transform: translateY(-50%);
       align-items: flex-start;
     }
-
     .thumbs.top {
       top: -280px;
       left: 50%;
@@ -136,36 +183,38 @@ main {
       flex-direction: row;
       justify-content: center;
     }
-
     .thumbs.bottom {
-      bottom: -350px;
-      left: 50%;
-      transform: translateX(-50%);
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-    }
+  bottom: -40px;  /* thumbnail dichter bij hoofdafbeelding */
+  left: 50%;
+  transform: translateX(-50%);
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 
+
+    /* Instructie tekst */
     .instruction {
-      position: absolute;
-      bottom: -60px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: #f24c8e;
-      font-weight: 600;
-      font-size: 1.2rem;
-      pointer-events: none;
-      user-select: none;
-      transition: color 0.3s ease, opacity 0.3s ease;
-      z-index: 5;
-      font-style: italic;
-      background: rgba(255, 255, 255, 0.7);
-      padding: 6px 14px;
-      border-radius: 20px;
-      box-shadow: 0 2px 8px rgba(242, 76, 142, 0.4);
-      letter-spacing: 0.03em;
-      white-space: nowrap;
-    }
+  position: absolute;
+  top: 40%; /* meer naar onder */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ef4d8e;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  pointer-events: none;
+  user-select: none;
+  transition: color 0.3s ease, opacity 0.3s ease;
+  z-index: 10;
+  font-style: italic;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 4px 10px;
+  border-radius: 15px;
+  box-shadow: 0 2px 6px rgba(239, 77, 142, 0.4);
+  white-space: nowrap;
+  opacity: 1;
+}
 
     .gallery-wrapper:hover .instruction {
       color: #ff8c00;
@@ -174,121 +223,273 @@ main {
       box-shadow: none;
     }
 
-    body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background-color: #f8f3e4;
-    }
-
-
-.hero-section {
+    /* Footer styling */
+    .site-footer {
+  background-color: #FF8C00;
+  color: #F5F0E1;
+  padding: 1.5rem 5vw; /* minder padding, compacter */
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.15);
   text-align: center;
-  max-width: 700px;
-  margin-top: 10px;
-  padding-top: 0;
-  background-color: #F5F0E1;
-  padding: 120px 20px 80px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem; /* minder ruimte tussen secties */
+}
+
+.intro {
+  margin-top: 10rem !important; /* Dwing het hoger te zetten */
+  text-align: center;
+  
+}
+
+.intro h1 {
+  margin-bottom: 2rem !important; /* Meer ruimte onder de titel */
+}
+
+.intro p {
+  margin-top: 1.5rem !important; /* Ruimte boven de paragraaf */
+}
+main {
+  margin-top: 40px; /* of meer, pas aan naar wens */
+  margin-top: 40px; /* of meer, pas aan naar wens */
+}
+
+body {
+  margin-bottom: 0;  /* geen marge onderaan */
+  padding-bottom: 0; /* geen padding onderaan */
+}
+.page-container {
+  min-height: 100vh;      /* hele viewport hoogte */
+  display: flex;
+  flex-direction: column;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* voorkom horizontale scroll */
+}
+.footer-info h2 {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
 }
 
 
-    @media (max-width: 768px) {
-      .thumbs {
-        display: none;
-      }
-      .instruction {
-        font-size: 1rem;
-        bottom: -40px;
-      }
-      .intro h1 {
-        font-size: 1.8rem;
-      }
-      .intro p {
-        font-size: 1rem;
-      }
-      h1 p {
-        Align-items: center
-    }
-  </style>
+.footer-info p {
+  font-size: 1rem;
+  margin: 0.25rem 0;
+  line-height: 1.5;
+}
+
+.footer-info a {
+  color: #F5F0E1;
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.footer-info a:hover {
+  color: #F24C8E;
+  text-decoration: none;
+}
+
+.footer-social-icons {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.footer-social-icons a {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  border-radius: 15px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.footer-social-icons img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.footer-social-icons a:hover {
+  transform: rotate(10deg) scale(1.1);
+  filter: brightness(1.1);
+  box-shadow: 0 8px 15px rgba(242, 76, 142, 0.6);
+}
+@media (max-width: 600px) {
+  .intro {
+    max-width: 90vw;
+    margin: 3rem auto 1.5rem;
+    font-size: 16px;
+  }
+  .gallery-wrapper {
+    width: 90vw;
+    margin: 2rem auto 2rem;
+  }
+}
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 2rem 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Maak gallery-wrapper smaller en centreren */
+  .gallery-wrapper {
+    width: 90vw;
+    height: auto;  /* hoogte flexibel maken */
+    margin: 3rem auto 2rem auto;
+    position: relative;
+  }
+
+  /* Verberg thumbnails */
+  .thumbs {
+    display: none !important;
+  }
+
+  /* Main image en hover image in normale flow zetten */
+  .main-img,
+  .hover-img {
+    position: relative !important; /* geen absolute positionering */
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  /* Hover effect: hover-img over dezelfde plek */
+  .hover-img {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+  }
+
+  .image-hover-container {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    cursor: pointer;
+  }
+
+  /* Hover states */
+  .image-hover-container:hover .hover-img {
+    opacity: 1;
+  }
+  .image-hover-container:hover .main-img:not(.hover-img) {
+    opacity: 0;
+  }
 
   
+
+  /* Verplaats instructie tekst */
+  .instruction {
+    position: absolute;
+    top: 50%;
+
+  
+
+
+
+
+
+
+
+     
+
+  </style>
+</head>
 <body>
 
   <nav class="navbar">
-    <ul>
-      <li><a href="home.html">HOME</a></li>
-      <li><a href="aboutme.html">ABOUT ME</a></li>
-      <li><a href="portfolio.html">PORTFOLIO</a></li>
-      <li><a href="contact.html" aria-current="page">CONTACT</a></li>
-    </ul>
-  </nav>
-<main>
-    <div class="intro">
+  <ul>
+    <li><a href="home.html">HOME</a></li>
+    <li><a href="aboutme.html">ABOUT ME</a></li>
+    <li><a href="portfolio.html">PORTFOLIO</a></li>
+    <li><a href="contact.html" aria-current="page">CONTACT</a></li>
+  </ul>
+</nav>
+
+  <div class="intro">
     <h1>LEER ME KENNEN</h1>
     <p>
       Hey! Mijn naam is Dina Vercammen. Ik ben een creatief persoon die graag met kleuren werkt en ontwerpen maakt die niet alleen mooi zijn, maar ook echt werken. Voor mij is het belangrijk dat mijn ontwerpen aantrekkelijk en effectief zijn en dat ze echt impact maken. Ik vind het leuk om steeds iets unieks en inspirerends te creëren waar ik zelf blij van word en waar jij hopelijk ook blij van wordt!
     </p>
   </div>
 
-<div class="spacer"></div>
+  <div class="spacer"></div>
 
   <div class="gallery-wrapper">
     <!-- Top thumbnails -->
     <div class="thumbs top">
-      <img src="images/DATA APART-02.png" class="thumb" />
-      <img src="images/DATA APART-03.png" class="thumb" />
+      <img src="images/DATA APART-02.png" class="thumb" alt="Thumbnail top 1" />
+      <img src="images/DATA APART-03.png" class="thumb" alt="Thumbnail top 2" />
     </div>
 
     <!-- Left thumbnails -->
     <div class="thumbs left">
-      <img src="images/DATA APART-04.png" class="thumb" />
+      <img src="images/DATA APART-04.png" class="thumb" alt="Thumbnail left" />
     </div>
 
     <!-- Main image container -->
     <div class="image-hover-container">
-      <img src="images/0fa62601-76ab-45da-b84e-c5960077fd8b.JPG" class="main-img" />
-      <img src="images/Avatar definitief 2.png" class="main-img hover-img" />
-    </div>
+        <img src="images/0fa62601-76ab-45da-b84e-c5960077fd8b.JPG" class="main-img" alt="Main image" />
+        <img src="images/Avatar definitief 2.png" class="main-img hover-img" alt="Hover image" />
+      
+        <!-- INSTRUCTION hier verplaatst naar binnen -->
+        <div class="instruction">Veeg over de foto en ontdek meer</div>
+      </div>
 
     <!-- Right thumbnails -->
     <div class="thumbs right">
-      <img src="images/DATA APART-05.png" class="thumb" />
+      <img src="images/DATA APART-05.png" class="thumb" alt="Thumbnail right" />
     </div>
 
     <!-- Bottom thumbnails -->
     <div class="thumbs bottom">
-        <img src="images/DATA APART-01.png" class="thumb"" />
-      
+      <img src="images/DATA APART-01.png" class="thumb" alt="Thumbnail bottom" />
     </div>
-
-    <!-- Instructie tekst -->
-    <div class="instruction">Veeg over de foto en ontdek meer</div>
   </div>
- </main>
-  
 
-  <footer class="site-footer" style="font-family: 'Montserrat', sans-serif;">
-    <div class="footer-content" style="max-width: 700px; margin: 0 auto; padding: 20px;">
-      <div class="footer-info" style="margin-bottom: 20px;">
-        <h2>Dina Vercammen</h2>
-        <p>Graphic Designer</p>
-        <p>Email: <a href="mailto:dinavercammen13@outlook.com">dinavercammen13@outlook.com</a></p>
-        <p>GSM: +324 99 74 41 89</p>
-      </div>
-      <div class="footer-social-icons" style="display: flex; gap: 10px;">
-        <a href="https://www.tiktok.com/@dina_vercammen?_t=ZG-8wbb9jGsAdM&_r=1" class="social-icon" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
-          <img src="images/TIKTOK.png" alt="TikTok logo" />
-        </a>
-        <a href="https://www.instagram.com/dinavercammen/" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-          <img src="images/INSTAGRAM.jpeg" alt="Instagram logo" />
-        </a>
-        <a href="https://www.linkedin.com/in/dina-vercammen/" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-          <img src="images/LINKEDIN.png" alt="LinkedIn logo" />
-        </a>
-      </div>
+  
+  <footer class="site-footer">
+    <div class="footer-info">
+      <h2>Dina Vercammen</h2>
+      <p>Graphic Designer</p>
+      <p>Email: <a href="mailto:dinavercammen13@outlook.com">dinavercammen13@outlook.com</a></p>
+      <p>GSM: +324 99 74 41 89</p>
+    </div>
+    <div class="footer-social-icons">
+      <a href="https://www.tiktok.com/@dina_vercammen?_t=ZG-8wbb9jGsAdM&_r=1" class="social-icon" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+        <img src="images/TIKTOK.png" alt="TikTok logo" />
+      </a>
+      <a href="https://www.instagram.com/dinavercammen/" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+        <img src="images/INSTAGRAM.jpeg" alt="Instagram logo" />
+      </a>
+      <a href="https://www.linkedin.com/in/dina-vercammen/" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+        <img src="images/LINKEDIN.png" alt="LinkedIn logo" />
+      </a>
     </div>
   </footer>
 
 </body>
 </html>
-
