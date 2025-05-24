@@ -195,8 +195,11 @@
   padding: 20px 0;
   font-family: 'Montserrat', sans-serif;
   box-sizing: border-box;
+  position: fixed; /* als je wilt dat hij vast blijft staan bovenaan */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* boven andere content */
 }
-
 .navbar ul {
   display: flex;
   justify-content: center;
