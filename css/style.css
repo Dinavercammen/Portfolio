@@ -802,3 +802,121 @@ body {
   background-color: rgba(255,255,255,0.5);
   opacity: 1;
 }
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #F5F0E1;
+  color: #000000; /* tekst zwart */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1rem 6rem;
+  gap: 2rem;
+}
+
+/* Header styling */
+.intro {
+  max-width: 580px;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.intro h1 {
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #f24c8e; /* roos kleur */
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.intro p {
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: #000000; /* zwarte bodytekst */
+  line-height: 1.7;
+}
+
+/* Ruimte tussen intro en gallery */
+.spacer {
+  height: 6rem;
+  width: 100%;
+}
+
+/* --- Responsieve gallery-wrapper --- */
+.gallery-wrapper {
+  position: relative;
+  width: 90vw;       /* schaal mee met schermbreedte */
+  max-width: 320px;  /* maar nooit breder dan 320px */
+  aspect-ratio: 320 / 450; /* houd verhouding vast */
+  margin-top: 2rem;
+}
+
+/* Container voor hoofdafbeeldingen */
+.image-hover-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+}
+
+/* Hoofdafbeeldingen responsief */
+.main-img,
+.hover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.4s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.hover-img {
+  opacity: 0;
+  z-index: 2;
+}
+
+.image-hover-container:hover .hover-img {
+  opacity: 1;
+}
+
+.image-hover-container:hover .main-img:not(.hover-img) {
+  opacity: 0;
+}
+
+/* Thumbnail container */
+.thumbs {
+  position: absolute;
+  display: flex;
+  gap: 1.25rem; /* 20px naar rem (1.25rem) */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  z-index: 3;
+}
+
+.gallery-wrapper:hover .thumbs {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Thumbnails zelf, schaalbaar */
+.thumb {
+  width: 81.25%; /* 260/320*100% zodat thumbnails meeschalen */
+  max-width: 260px;
+  height: auto;
+  aspect-ratio: 260 / 340; /* houd verhoudingen */
+  object-fit: contain;
+  transition: transform 0.3s ease;
+ 
