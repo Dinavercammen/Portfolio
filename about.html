@@ -202,27 +202,25 @@
 <body>
 <div id="header"></div>
 
-  <script>
-    fetch('header.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('header').innerHTML = data;
-      })
-      .catch(error => {
-        console.error('Fout bij laden header:', error);
-      });
+ <script>
+  fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+    })
+    .catch(error => {
+      console.error('Fout bij laden header:', error);
+    });
 
-      <script>
-    fetch('footer.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('footer').innerHTML = data;
-      })
-      .catch(error => {
-        console.error('Fout bij laden footer:', error);
-      });
-  </script>
-  </script>
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer').innerHTML = data;
+    })
+    .catch(error => {
+      console.error('Fout bij laden footer:', error);
+    });
+</script>
 
     
   <div class="intro">
