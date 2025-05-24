@@ -7,6 +7,79 @@
    <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
+    .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #FF8C00;
+  padding: 1rem 2rem;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.navbar ul li a:hover {
+  text-decoration: underline;
+}
+
+.site-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #FF8C00;
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+.site-footer .footer-info h2 {
+  margin: 0 0 0.5rem 0;
+}
+
+.site-footer .footer-info p,
+.site-footer .footer-info a {
+  margin: 0.2rem 0;
+  color: white;
+  text-decoration: none;
+}
+
+.site-footer .footer-social-icons {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.site-footer .footer-social-icons a img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  filter: brightness(0) invert(1); /* wit maken indien nodig */
+  transition: filter 0.3s ease;
+}
+
+.site-footer .footer-social-icons a:hover img {
+  filter: brightness(0.8) invert(0.7);
+}
+
     * {
       margin: 0;
       padding: 0;
@@ -220,13 +293,13 @@
 <body>
 
  <nav class="navbar">
-    <ul>
-      <li><a href="home.html">HOME</a></li>
-      <li><a href="aboutme.html">ABOUT ME</a></li>
-      <li><a href="portfolio.html">PORTFOLIO</a></li>
-      <li><a href="contact.html">CONTACT</a></li>
-    </ul>
-  </nav>
+  <ul>
+    <li><a href="home.html">HOME</a></li>
+    <li><a href="aboutme.html">ABOUT ME</a></li>
+    <li><a href="portfolio.html">PORTFOLIO</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+  </ul>
+</nav>
 
 
  
@@ -276,6 +349,26 @@
     <!-- Instructie tekst -->
     <div class="instruction">Veeg over de foto en ontdek meer</div>
   </div>
+
+  <footer class="site-footer">
+  <div class="footer-info">
+    <h2>Dina Vercammen</h2>
+    <p>Graphic Designer</p>
+    <p>Email: <a href="mailto:dinavercammen13@outlook.com">dinavercammen13@outlook.com</a></p>
+    <p>GSM: +324 99 74 41 89</p>
+  </div>
+  <div class="footer-social-icons">
+    <a href="https://www.tiktok.com/@dina_vercammen?_t=ZG-8wbb9jGsAdM&_r=1" class="social-icon" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+      <img src="images/TIKTOK.png" alt="TikTok logo" />
+    </a>
+    <a href="https://www.instagram.com/dinavercammen/" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+      <img src="images/INSTAGRAM.jpeg" alt="Instagram logo" />
+    </a>
+    <a href="https://www.linkedin.com/in/dina-vercammen/" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+      <img src="images/LINKEDIN.png" alt="LinkedIn logo" />
+    </a>
+  </div>
+</footer>
 
 </body>
 </html>
