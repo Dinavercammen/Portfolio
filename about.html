@@ -3,370 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dina Vercammen - Portfolio Gallery</title>
-   <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
-  <style>
-    
+  <title>Contact</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Roboto+Slab&display=swap" rel="stylesheet" />
 
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #FF8C00;
-  padding: 1rem 2rem;
-  z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.navbar ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 2rem;
-}
-
-.navbar ul li a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.navbar ul li a:hover {
-  text-decoration: underline;
-}
-
-.site-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #FF8C00;
-  color: white;
-  padding: 2rem 1rem;
-  text-align: center;
-  box-sizing: border-box;
-  z-index: 1000;
-}
-
-.site-footer .footer-info h2 {
-  margin: 0 0 0.5rem 0;
-}
-
-.site-footer .footer-info p,
-.site-footer .footer-info a {
-  margin: 0.2rem 0;
-  color: white;
-  text-decoration: none;
-}
-
-.site-footer .footer-social-icons {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-}
-
-.site-footer .footer-social-icons a img {
-  width: 30px;
-  height: 30px;
-  object-fit: contain;
-  filter: brightness(0) invert(1); /* wit maken indien nodig */
-  transition: filter 0.3s ease;
-}
-
-.site-footer .footer-social-icons a:hover img {
-  filter: brightness(0.8) invert(0.7);
-}
-
-
-
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: #F5F0E1;
-      color: #000000; /* tekst zwart */
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 3rem 1rem 6rem;
-      gap: 2rem;
-    }
-
-    /* Header styling */
-    .intro {
-      max-width: 580px;
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-
-    .intro h1 {
-      font-weight: 700;
-      font-size: 2.5rem;
-      color: #f24c8e; /* roos kleur */
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-    }
-
-    .intro p {
-      font-weight: 400;
-      font-size: 1.1rem;
-      color: #000000; /* zwarte bodytekst */
-      line-height: 1.7;
-    }
-
-    /* Ruimte tussen intro en gallery */
-    .spacer {
-      height: 6rem;
-      width: 100%;
-    }
-
-    .gallery-wrapper {
-      position: relative;
-      width: 320px;
-      height: 450px; /* originele grootte behouden */
-      margin-top: 2rem;
-    }
-
-    .image-hover-container {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      z-index: 1;
-      cursor: pointer;
-    }
-
-    .main-img,
-    .hover-img {
-      width: 320px;
-      height: 450px;
-      object-fit: cover;
-      border-radius: 10px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      transition: opacity 0.4s ease;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    }
-
-    .hover-img {
-      opacity: 0;
-      z-index: 2;
-    }
-
-    .image-hover-container:hover .hover-img {
-      opacity: 1;
-    }
-
-    .image-hover-container:hover .main-img:not(.hover-img) {
-      opacity: 0;
-    }
-
-    .thumbs {
-      position: absolute;
-      display: flex;
-      gap: 20px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.5s ease;
-      z-index: 3;
-    }
-
-    .gallery-wrapper:hover .thumbs {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .thumb {
-      width: 260px;
-      height: 340px;
-      object-fit: contain;
-      transition: transform 0.3s ease;
-      cursor: pointer;
-    }
-
-    .thumb:hover {
-      transform: scale(1.1);
-    }
-
-    .thumbs.left {
-      top: 50%;
-      left: -280px;
-      flex-direction: column;
-      transform: translateY(-50%);
-      align-items: flex-end;
-    }
-
-    .thumbs.right {
-      top: 50%;
-      right: -280px;
-      flex-direction: column;
-      transform: translateY(-50%);
-      align-items: flex-start;
-    }
-
-    .thumbs.top {
-      top: -280px;
-      left: 50%;
-      transform: translateX(-50%);
-      flex-direction: row;
-      justify-content: center;
-    }
-
-    .thumbs.bottom {
-      bottom: -350px;
-      left: 50%;
-      transform: translateX(-50%);
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .instruction {
-      position: absolute;
-      bottom: -60px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: #f24c8e;
-      font-weight: 600;
-      font-size: 1.2rem;
-      pointer-events: none;
-      user-select: none;
-      transition: color 0.3s ease, opacity 0.3s ease;
-      z-index: 5;
-      font-style: italic;
-      background: rgba(255, 255, 255, 0.7);
-      padding: 6px 14px;
-      border-radius: 20px;
-      box-shadow: 0 2px 8px rgba(242, 76, 142, 0.4);
-      letter-spacing: 0.03em;
-      white-space: nowrap;
-    }
-
-    .gallery-wrapper:hover .instruction {
-      color: #ff8c00;
-      opacity: 0;
-      background: transparent;
-      box-shadow: none;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background-color: #f8f3e4;
-    }
-
-
-.hero-section {
-  text-align: center;
-  max-width: 700px;
-  margin-top: 10px;
-  padding-top: 0;
-  background-color: #F5F0E1;
-  padding: 120px 20px 80px;
-  margin: 0 auto;
-}
-
-
-    @media (max-width: 768px) {
-      .thumbs {
-        display: none;
-      }
-      .instruction {
-        font-size: 1rem;
-        bottom: -40px;
-      }
-      .intro h1 {
-        font-size: 1.8rem;
-      }
-      .intro p {
-        font-size: 1rem;
-      }
-    }
-  </style>
-</head>
 <body>
 
- <nav class="navbar">
-  <ul>
-    <li><a href="home.html">HOME</a></li>
-    <li><a href="aboutme.html">ABOUT ME</a></li>
-    <li><a href="portfolio.html">PORTFOLIO</a></li>
-    <li><a href="contact.html">CONTACT</a></li>
-  </ul>
-</nav>
+  <nav class="navbar">
+    <ul>
+      <li><a href="home.html">HOME</a></li>
+      <li><a href="aboutme.html">ABOUT ME</a></li>
+      <li><a href="portfolio.html">PORTFOLIO</a></li>
+      <li><a href="contact.html" aria-current="page">CONTACT</a></li>
+    </ul>
+  </nav>
 
+  
 
- 
-
- 
-
- 
-    
-  <div class="intro">
-    <h1>LEER ME KENNEN</h1>
-    <p>
-      Hey! Mijn naam is Dina Vercammen. Ik ben een creatief persoon die graag met kleuren werkt en ontwerpen maakt die niet alleen mooi zijn, maar ook echt werken. Voor mij is het belangrijk dat mijn ontwerpen aantrekkelijk en effectief zijn en dat ze echt impact maken. Ik vind het leuk om steeds iets unieks en inspirerends te creëren waar ik zelf blij van word en waar jij hopelijk ook blij van wordt!
-    </p>
-  </div>
-
-  <div class="spacer"></div>
-
-  <div class="gallery-wrapper">
-    <!-- Top thumbnails -->
-    <div class="thumbs top">
-      <img src="images/DATA APART-02.png" class="thumb" />
-      <img src="images/DATA APART-03.png" class="thumb" />
+  <footer class="site-footer" style="font-family: 'Montserrat', sans-serif;">
+    <div class="footer-content" style="max-width: 700px; margin: 0 auto; padding: 20px;">
+      <div class="footer-info" style="margin-bottom: 20px;">
+        <h2>Dina Vercammen</h2>
+        <p>Graphic Designer</p>
+        <p>Email: <a href="mailto:dinavercammen13@outlook.com">dinavercammen13@outlook.com</a></p>
+        <p>GSM: +324 99 74 41 89</p>
+      </div>
+      <div class="footer-social-icons" style="display: flex; gap: 10px;">
+        <a href="https://www.tiktok.com/@dina_vercammen?_t=ZG-8wbb9jGsAdM&_r=1" class="social-icon" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+          <img src="images/TIKTOK.png" alt="TikTok logo" />
+        </a>
+        <a href="https://www.instagram.com/dinavercammen/" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+          <img src="images/INSTAGRAM.jpeg" alt="Instagram logo" />
+        </a>
+        <a href="https://www.linkedin.com/in/dina-vercammen/" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+          <img src="images/LINKEDIN.png" alt="LinkedIn logo" />
+        </a>
+      </div>
     </div>
-
-    <!-- Left thumbnails -->
-    <div class="thumbs left">
-      <img src="images/DATA APART-04.png" class="thumb" />
-    </div>
-
-    <!-- Main image container -->
-    <div class="image-hover-container">
-      <img src="images/0fa62601-76ab-45da-b84e-c5960077fd8b.JPG" class="main-img" />
-      <img src="images/Avatar definitief 2.png" class="main-img hover-img" />
-    </div>
-
-    <!-- Right thumbnails -->
-    <div class="thumbs right">
-      <img src="images/DATA APART-05.png" class="thumb" />
-    </div>
-
-    <!-- Bottom thumbnails -->
-    <div class="thumbs bottom">
-        <img src="images/DATA APART-01.png" class="thumb"" />
-      
-    </div>
-
-    <!-- Instructie tekst -->
-    <div class="instruction">Veeg over de foto en ontdek meer</div>
-  </div>
-
-  <footer class="site-footer">
-  <div class="footer-info">
-    <h2>Dina Vercammen</h2>
-    <p>Graphic Designer</p>
-    <p>Email: <a href="mailto:dinavercammen13@outlook.com">dinavercammen13@outlook.com</a></p>
-    <p>GSM: +324 99 74 41 89</p>
-  </div>
-  <div class="footer-social-icons">
-    <a href="https://www.tiktok.com/@dina_vercammen?_t=ZG-8wbb9jGsAdM&_r=1" class="social-icon" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
-      <img src="images/TIKTOK.png" alt="TikTok logo" />
-    </a>
-    <a href="https://www.instagram.com/dinavercammen/" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-      <img src="images/INSTAGRAM.jpeg" alt="Instagram logo" />
-    </a>
-    <a href="https://www.linkedin.com/in/dina-vercammen/" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-      <img src="images/LINKEDIN.png" alt="LinkedIn logo" />
-    </a>
-  </div>
-</footer>
+  </footer>
 
 </body>
 </html>
