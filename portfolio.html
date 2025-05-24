@@ -2,13 +2,29 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Een plek vol creaties</title>
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet" />
+  
+  <!-- Eigen CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  
+  <!-- Toegevoegde CSS om projecttitels in hoofdletters te tonen -->
+  <style>
+    .grid-item .overlay h3 {
+  text-transform: uppercase;
+}
+
+.grid-container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+  </style>
 </head>
+
 <body>
 
   <nav class="navbar">
@@ -20,50 +36,99 @@
     </ul>
   </nav>
 
-  <section class="portfolio-header">
-    <h1>MIJN PORTFOLIO</h1>
-    <h2>Bekijk hier mijn eerdere werk</h2>
+  <section class="hero-section">
+    <h1>EEN PLEK VOL CREATIES </h1>
+    <p>
+    Een plek vol creaties, waar ideeën tot leven komen.
+Hier ontmoet creativiteit vorm en inspiratie elkaar. Elk ontwerp is met zorg en passie gemaakt, gericht op duidelijkheid en impact.
+Neem de tijd om mijn wereld van creaties te ontdekken en laat je meenemen door de details en het verhaal achter elk project.
+    </p>
+    <!-- De button is verwijderd -->
   </section>
 
-  <section class="portfolio-grid">
-    <div class="portfolio-item">
-      <img src="images/werk1.jpg" alt="Project 1" />
-      <h3>Logo Design voor Bedrijf X</h3>
+  <section class="grid-container">
+    <div class="grid-item image-cell orange-cell" onclick="openModal('project1')">
+      <img src="images/project1.jpg" alt="Project 1" />
+      <div class="overlay">
+        <h3>Project 1</h3>
+        <p>Korte uitleg over dit project.</p>
+      </div>
     </div>
-    <div class="portfolio-item">
-      <img src="images/werk2.jpg" alt="Project 2" />
-      <h3>Social Media Campagne</h3>
+
+    <div class="grid-item image-cell pink-cell" onclick="openModal('project2')">
+      <img src="images/project2.jpg" alt="Project 2" />
+      <div class="overlay">
+        <h3>Project 2</h3>
+        <p>Een andere korte omschrijving.</p>
+      </div>
     </div>
-    <div class="portfolio-item">
-      <img src="images/werk3.jpg" alt="Project 3" />
-      <h3>Visitekaartjes ontwerp</h3>
+
+    <div class="grid-item image-cell green-cell" onclick="openModal('project3')">
+      <img src="images/project3.jpg" alt="Project 3" />
+      <div class="overlay">
+        <h3>Project 3</h3>
+        <p>Beschrijving van het project.</p>
+      </div>
     </div>
-    <div class="portfolio-item">
-      <img src="images/werk4.jpg" alt="Project 4" />
-      <h3>Illustratie project</h3>
+
+    <div class="grid-item image-cell orange-cell" onclick="openModal('project4')">
+      <img src="images/project4.jpg" alt="Project 4" />
+      <div class="overlay">
+        <h3>Project 4</h3>
+        <p>Beschrijving van het project.</p>
+      </div>
     </div>
-    <!-- Voeg meer items toe zoals gewenst -->
+
+    <div class="grid-item image-cell pink-cell" onclick="openModal('project5')">
+      <img src="images/project5.jpg" alt="Project 5" />
+      <div class="overlay">
+        <h3>Project 5</h3>
+        <p>Beschrijving van het project.</p>
+      </div>
+    </div>
+
+    <div class="grid-item image-cell green-cell" onclick="openModal('project6')">
+      <img src="images/project6.jpg" alt="Project 6" />
+      <div class="overlay">
+        <h3>Project 6</h3>
+        <p>Beschrijving van het project.</p>
+      </div>
+    </div>
+
+    <div class="grid-item image-cell orange-cell" onclick="openModal('project7')">
+      <img src="images/project7.jpg" alt="Project 7" />
+      <div class="overlay">
+        <h3>Project 7</h3>
+        <p>Beschrijving van het project.</p>
+      </div>
+    </div>
+
+    <div class="grid-item image-cell pink-cell" onclick="openModal('project8')">
+      <img src="images/project8.jpg" alt="Project 8" />
+      <div class="overlay">
+        <h3>Project 8</h3>
+        <p>Beschrijving van het project.</p>
+      </div>
+    </div>
   </section>
 
   <footer class="site-footer">
-    <div class="footer-content">
-      <div class="footer-info">
-        <h2>Dina Vercammen</h2>
-        <p>Graphic Designer</p>
-        <p>Email: <a href="mailto:dinavercammen13@outlook.com">dinavercammen13@outlook.com</a></p>
-        <p>GSM: +324 99 74 41 60</p>
-      </div>
-      <div class="footer-social-icons">
-        <a href="#" class="social-icon" aria-label="TikTok">
-          <img src="images/TIKTOK.png" alt="TikTok logo" />
-        </a>
-        <a href="#" class="social-icon" aria-label="Instagram">
-          <img src="images/INSTAGRAM.jpeg" alt="Instagram logo" />
-        </a>
-        <a href="#" class="social-icon" aria-label="LinkedIn">
-          <img src="images/LINKEDIN.png" alt="LinkedIn logo" />
-        </a>
-      </div>
+    <div class="footer-info">
+      <h2>Dina Vercammen</h2>
+      <p>Graphic Designer</p>
+      <p>Email: <a href="mailto:dinavercammen13@outlook.com">dinavercammen13@outlook.com</a></p>
+      <p>GSM: +324 99 74 41 89</p>
+    </div>
+    <div class="footer-social-icons">
+      <a href="https://www.tiktok.com/@dina_vercammen?_t=ZG-8wbb9jGsAdM&_r=1" class="social-icon" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+        <img src="images/TIKTOK.png" alt="TikTok logo" />
+      </a>
+      <a href="https://www.instagram.com/dinavercammen/" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+        <img src="images/INSTAGRAM.jpeg" alt="Instagram logo" />
+      </a>
+      <a href="https://www.linkedin.com/in/dina-vercammen/" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+        <img src="images/LINKEDIN.png" alt="LinkedIn logo" />
+      </a>
     </div>
   </footer>
 
