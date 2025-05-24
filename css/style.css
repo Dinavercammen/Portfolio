@@ -178,7 +178,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255,255,255,0);
+  background-color: #f5f0e1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -191,7 +191,6 @@ body {
 }
 
 .image-cell .overlay p {
-  color: #000;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   font-size: 0.85rem;
@@ -798,3 +797,4 @@ body {
   object-fit: contain;
   filter: drop-shadow(0 0 1px rgba(0,0,0,0.3));
 }
+
