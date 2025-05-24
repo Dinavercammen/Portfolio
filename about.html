@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dina Vercammen - Smooth Hover Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #F5F0E1;
+      color: #000;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .image-hover-container {
+      position: relative;
+      width: 320px;
+      height: 420px;
+      overflow: visible; /* Zodat thumbnails buiten container kunnen */
+    }
+
+    /* Hoofdafbeelding */
+    .main-img,
+    .hover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: opacity 0.4s ease;
+      display: block;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .hover-img {
+      opacity: 0;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .image-hover-container:hover .hover-img {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .image-hover-container:hover .main-img:not(.hover-img) {
+      opacity: 0;
+    }
+
+    /* Container voor thumbnails */
+    .thumbnails {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 100%;
+      pointer-events: none;
+      z-index: 3;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 80px; /* ruimte aan de zijkanten voor thumbnails */
+    }
+
+    /* Individuele thumbnails */
+    .thumb {
+      width: 60px;
+      height: 80px;
+      object-fit: contain;
+      opacity: 0;
+      transition: opacity 0.5s ease, transform 0.3s ease;
+      cursor: pointer;
+      pointer-events: auto;
+      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.15));
+      /* Geen achtergrond, geen border */
+      background: none;
+      border: none;
+      border-radius: 0;
+    }
+
+    /* Thumbnails verschijnen smooth bij hover container */
+    .image-hover-container:hover .thumb {
+      opacity: 1;
+    }
+
+    /* Kleinere scale bij hover thumbnail */
+    .thumb:hover {
+      transform: scale(1.1);
+    }
+
+    /* Verdeling thumbnails: 3 links, 2 rechts */
+    .left-thumbs {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .right-thumbs {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    /* Responsive: thumbnails verbergen op smalle schermen */
+    @media (max-width: 768px) {
+      .thumbnails {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="image-hover-container">
+    <!-- Hoofdafbeelding -->
+    <img src="images/0fa62601-76ab-45da-b84e-c5960077fd8b.JPG" alt="Hoofdafbeelding" class="main-img" />
+
+    <!-- Hover-afbeelding -->
+    <img src="images/Avatar definitief 2.png" alt="Hover afbeelding" class="main-img hover-img" />
+
+    <!-- Thumbnails links en rechts -->
+    <div class="thumbnails">
+      <div class="left-thumbs">
+        <img src="images/DATA APART-02.png" alt="thumb1" class="thumb" />
+        <img src="images/DATA APART-03.png" alt="thumb2" class="thumb" />
+        <img src="images/DATA APART-06.png" alt="thumb5" class="thumb" />
+      </div>
+      <div class="right-thumbs">
+        <img src="images/DATA APART-04.png" alt="thumb3" class="thumb" />
+        <img src="images/DATA APART-05.png" alt="thumb4" class="thumb" />
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
