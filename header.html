@@ -1,0 +1,19 @@
+<div id="header"></div>
+
+<script>
+fetch('header.html')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('header').innerHTML = data;
+  });
+</script>
+
+<nav class="navbar">
+  <ul>
+    <li><a href="home.html">HOME</a></li>
+    <li><a href="aboutme.html">ABOUT ME</a></li>
+    <li><a href="portfolio.html">PORTFOLIO</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+  </ul>
+</nav>
+
