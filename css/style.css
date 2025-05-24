@@ -1,4 +1,13 @@
-/* Algemene instellingen */
+:root {
+  --primary: #00bcd4;
+  --primary-dark: #0097a7;
+  --bg: #f4f4f4;
+  --text: #333;
+  --white: #fff;
+  --header-height: 70px;
+}
+
+/* Basisinstellingen */
 * {
   margin: 0;
   padding: 0;
@@ -6,13 +15,13 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
   line-height: 1.6;
+  font-size: 16px;
 }
 
-/* Container */
 .container {
   width: 90%;
   max-width: 1200px;
@@ -21,111 +30,155 @@ body {
 
 /* Header & Navigatie */
 header {
-  background-color: #222;
-  color: white;
-  padding: 20px 0;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   position: sticky;
   top: 0;
   z-index: 1000;
+  background: rgba(34, 34, 34, 0.95);
+  backdrop-filter: blur(10px);
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  width: 100%;
   padding: 0 20px;
 }
 
 nav .logo {
   font-size: 1.8rem;
-  font-weight: bold;
-  color: #fff;
+  font-weight: 700;
+  color: var(--white);
   text-decoration: none;
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 30px;
 }
 
 nav ul li a {
-  color: white;
+  color: var(--white);
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-  color: #00bcd4;
+  color: var(--primary);
+}
+
+/* Burger menu */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  color: var(--white);
+  cursor: pointer;
 }
 
 /* Homepage */
 .homepage {
-  background: linear-gradient(to right, #00bcd4, #2196f3);
-  color: white;
-  padding: 80px 20px;
+  background: linear-gradient(to right, var(--primary), #2196f3);
+  color: var(--white);
+  padding: 100px 20px;
   text-align: center;
 }
 
 .homepage h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
   margin-bottom: 20px;
 }
 
 .homepage p {
-  font-size: 1.2rem;
-  max-width: 600px;
+  font-size: 1.3rem;
+  max-width: 700px;
   margin: auto;
 }
 
 /* Buttons */
-button, .btn {
-  background-color: #00bcd4;
-  color: white;
+.btn {
+  display: inline-block;
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 12px 25px;
+  margin-top: 20px;
   border: none;
-  padding: 10px 20px;
-  margin-top: 10px;
+  border-radius: 8px;
   font-size: 1rem;
-  border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s ease;
+  text-decoration: none;
 }
 
-button:hover, .btn:hover {
-  background-color: #0097a7;
+.btn:hover {
+  background-color: var(--primary-dark);
 }
 
-/* Grid Layouts */
+/* Kaarten / Grid */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  margin: 40px 0;
+  gap: 30px;
+  margin: 60px 0;
 }
 
-/* Cards / Items */
 .card {
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  padding: 20px;
-  transition: transform 0.2s ease;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 25px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
 }
 
 /* Footer */
 footer {
   background-color: #222;
-  color: white;
+  color: var(--white);
   text-align: center;
-  padding: 30px 20px;
-  margin-top: 40px;
+  padding: 40px 20px;
+  margin-top: 60px;
+  font-size: 0.9rem;
+}
+
+/* Formulieren */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+input[type="submit"] {
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: var(--primary-dark);
 }
 
 /* Overlay */
@@ -143,70 +196,29 @@ footer {
 }
 
 .overlay-content {
-  background: white;
+  background: var(--white);
   padding: 40px;
-  border-radius: 8px;
+  border-radius: 10px;
   max-width: 500px;
   width: 90%;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-/* Responsive Menu */
+/* Responsive */
 @media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
   nav ul {
     flex-direction: column;
     background-color: #222;
     width: 100%;
     display: none;
+    padding: 20px 0;
   }
 
   nav ul.active {
     display: flex;
   }
-
-  .menu-toggle {
-    display: block;
-    cursor: pointer;
-    font-size: 1.5rem;
-    color: white;
-  }
-
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-
-.menu-toggle {
-  display: none;
-}
-
-/* Formulier */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-input[type="text"],
-input[type="email"],
-textarea {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1rem;
-}
-
-input[type="submit"] {
-  background-color: #00bcd4;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-input[type="submit"]:hover {
-  background-color: #0097a7;
 }
